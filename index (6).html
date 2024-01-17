@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Image Gallery</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-box {
+    display: flex;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 700px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    margin: 5px; /* Adjust the margin between images as needed */
+    display: none;
+
+
+
+   
+}
+
+.image-box img.active {
+    display: block;
+}
+.qw{
+    border: 2px solid black;
+    width: 500px;
+    height: 300px;
+}
+.ww{
+    align-items: center;
+    width: 390px;
+    height: 100px;
+
+}
+.arjust{
+margin: 20px;
+}
+    </style>
+</head>
+<body>
+<div class="qw">
+<div class="image-box ww" id="imageBox">
+    <img src="download1.png" alt="Image 1">
+    <img class="arjust" src="fig1.png" alt="Image 2">
+    <img src="fig2.png" alt="Image 3">
+    <img src="fig3.png" alt="Image 4">
+    <img src="fig4.png" alt="Image 5">
+</div>
+</div>
+
+<button onclick="showImage(1)">Show Image 1</button>
+<button onclick="showImage(2)">Show Image 2</button>
+<button onclick="showImage(3)">Show Image 3</button>
+<button onclick="showImage(4)">Show Image 4</button>
+<button onclick="showImage(5)">Show Image 5</button>
+<!-- Add more buttons for additional images if needed -->
+
+<script >
+    let currentIndex = 0;
+
+function showImage(index) {
+    const images = document.querySelectorAll('.image-box img');
+    
+    if (index >= 1 && index <= images.length) {
+        currentIndex = index - 1;
+        updateImagesVisibility(images);
+    }
+}
+
+function updateImagesVisibility(images) {
+    images.forEach((image, index) => {
+        if (index <= currentIndex) {
+            image.classList.add('active');
+        } else {
+            image.classList.remove('active');
+        }
+    });
+}
+
+</script>
+</body>
+</html>
